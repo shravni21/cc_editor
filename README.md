@@ -1,6 +1,6 @@
 ## Steps:
 
-> To use the extension, follow these steps:
+> To run the project, follow these steps:
 
 - Install dependencies with npm i command
 - nodemon server.js
