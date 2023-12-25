@@ -1,5 +1,7 @@
-# Install dependencies with "npm i" command
+## Steps:
 
-# Run socket.io backend with nodemon server.js
+> To use the extension, follow these steps:
 
-# Run frontedn with "react-scripts start",
+- Install dependencies with npm i command
+- nodemon server.js
+- react-scripts start
