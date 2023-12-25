@@ -30,13 +30,13 @@ const EditorPage = () => {
                 toast.error('Socket connection failed, try again later.');
                 reactNavigator('/');
             }
-            // Sending the server that we have joind and sedning the roomId and the user name with it 
+            // Sending the server that we have joind and sending the roomId and the user name with it 
             socketRef.current.emit(ACTIONS.JOIN, {
                 roomId,
                 username: location.state?.username,
             });
 
-            // Listening for joined event om is for join
+            // Listening for joined event on is for join
             socketRef.current.on(
                 ACTIONS.JOINED,
                 // we get a call back where we get the data we sent 
@@ -49,7 +49,7 @@ const EditorPage = () => {
                     // update the clients list 
                     setClients(clients);
                     // as soon as the new user joins we send the updated code to the server so that it can give to the new client as we want the new client to get that as soon as it joins
-                    // we also sending the socket id of the new user 
+                    //  sending the socket id of the new user 
                     socketRef.current.emit(ACTIONS.SYNC_CODE, {
                         code: codeRef.current,
                         socketId,
@@ -81,7 +81,7 @@ const EditorPage = () => {
             socketRef.current.off(ACTIONS.JOINED);
             socketRef.current.off(ACTIONS.DISCONNECTED);
         };
-    }, []);
+    }, [location.state?.username, reactNavigator, roomId]);
 
     async function copyRoomId() {
         try {
